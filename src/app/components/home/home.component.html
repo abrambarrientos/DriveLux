@@ -1,0 +1,196 @@
+<section class="image-container">
+    <img [src]="currentImageSrc" alt="Moto Frame" class="scroll-image" />
+</section>
+<main>
+</main>
+
+<section id="gradient" class="w-full h-1/2 bg-amber-50"></section>
+
+
+<section class="bg-black">
+
+    <section class="w-full h-auto flex items-center justify-center bg-black pr-[2rem] pl-[2rem]">
+        <div class=" titulo2 w-[80%] h-4 flex items-center justify-between text-white pr-10 pl-10">
+            <h1>Tu</h1>
+            <h1>[ Camino hacia ]</h1>
+            <h1>La libertad</h1>
+        </div>
+    </section>
+
+    <section class="w-full h-auto  text-black p-4 items-center justify-items-center bg-black ">
+        <div class="w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[250px] gap-4 "
+            id="grid">
+
+            <article class="team-item col-span-1 sm:col-span-2 row-span-2 relative overflow-hidden rounded-lg"
+                data-aos="fade-up">
+                <div class="team-inner">
+                    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                        <source src="videos/Video1.mp4" type="video/mp4" />
+                        Tu navegador no soporta videos.
+                    </video>
+                    <section class="team-info">
+                        <h2 id="text1">SEGURIDAD</h2>
+                    </section>
+                </div>
+            </article>
+
+            <article class="team-item col-span-1 sm:col-span-2 row-span-2 relative overflow-hidden rounded-lg"
+                data-aos="fade-up">
+                <div class="team-inner">
+                    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                        <source src="videos/Video3.mp4" type="video/mp4" />
+                        Tu navegador no soporta videos.
+                    </video>
+                    <section class="team-info">
+                        <h2 id="text1">VELOCIDAD</h2>
+                    </section>
+                </div>
+            </article>
+
+            <article class="team-item col-span-full  relative overflow-hidden rounded-lg" data-aos="fade-up">
+                <div class="team-inner">
+                    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                        <source src="videos/Video5.mp4" type="video/mp4" />
+                        Tu navegador no soporta videos.
+                    </video>
+                    <section class="team-info">
+                        <h2 id="text1">ELEGANCIA</h2>
+                    </section>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="w-full h-auto flex flex-col items-center justify-center bg-black">
+        <h1 id=titulo1>¿QUIENES SOMOS?</h1>
+        <div class="w-[80%] flex items-center justify-center gap-2.5">
+            <div class="flex-1/2 text-white text-justify ">
+                <p>
+                    DriveLux es una agencia automotriz de lujo dedicada a ofrecer una experiencia única y personalizada
+                    en
+                    la adquisición de vehículos de alta gama.
+                    A través de nuestra plataforma web intuitiva y segura, los
+                    clientes pueden explorar una exclusiva colección de automóviles de marcas premium, personalizar cada
+                    detalle a su gusto y realizar su compra con total confianza.
+                </p>
+
+                <p>En DriveLux no solo vendemos autos, creamos experiencias de conducción únicas. Nuestro configurador
+                    avanzado permite elegir desde el modelo y color exterior hasta acabados interiores, tecnología y
+                    accesorios especiales, todo en tiempo real y con visualización interactiva. Además, garantizamos
+                    transparencia, atención personalizada y procesos seguros para que cada cliente disfrute del lujo con
+                    tranquilidad.
+                </p>
+
+                <p>DriveLux: El lujo comienza desde que eliges.</p>
+            </div>
+            <div class="flex-1/2 ">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/Video2.mp4" type="video/mp4" />
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor principal centrado -->
+    <div class="Contenedor flex flex-col items-center justify-center w-full bg-black min-h-screen py-8 ">
+        <h1 class="text-amber-400 "> NUESTROS AUTOS MAS PREMIUM</h1>
+        <!-- Cuadro grande (centrado) -->
+        <div
+            class="Container relative w-[800px] h-[400px] rounded-lg p-6 text-white transition-all duration-300 backdrop-blur-sm shadow-xl">
+            @if (carroSeleccionado; as carro) {
+            <img [src]="carro.imagen" [alt]="carro.nombre"
+                class="absolute inset-0 w-full h-full object-cover rounded-lg transition-opacity duration-500"
+                [class.opacity-100]="hoveredIndex !== null" [class.opacity-40]="hoveredIndex === null" />
+
+            <div class="relative z-10 flex justify-between h-full items-center px-6 animate-fadeIn">
+                <ul class="text-left space-y-4 text-lg font-A4SPEED">
+                    @for (dato of carro.caracteristicasIzq; track dato) {
+                    <li class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        {{ dato }}
+                    </li>
+                    }
+                </ul>
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold mb-4 text-yellow-400">{{ carro.nombre }}</h2>
+                    <div class="w-32 h-1 bg-yellow-500 mx-auto mb-6"></div>
+                </div>
+                <ul class="text-right space-y-4 text-lg font-medium">
+                    @for (dato of carro.caracteristicasDer; track dato) {
+                    <li class="flex items-center justify-end gap-2">
+                        {{ dato }}
+                        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    }
+                </ul>
+            </div>
+            } @else {
+            <div
+                class="w-full h-full flex items-center justify-center text-gray-400 text-2xl font-semibold animate-pulse">
+                ⚡ Selecciona un auto ⚡
+            </div>
+            }
+        </div>
+
+        <!-- Contenedor del carrusel con flechas -->
+        <div class="carrusel flex items-center justify-center gap-4 mt-12 w-full max-w-3xl relative">
+            <!-- Flecha izquierda -->
+            <button (click)="anterior()"
+                class="p-3 rounded-full bg-gray-800 hover:bg-yellow-600 transition-all duration-300 shadow-lg z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <!-- Carrusel de miniaturas (limitado a 4 visibles) -->
+            <div class="flex overflow-x-hidden gap-4 py-4 scroll-smooth w-[500px] relative" #contenedorCarrusel>
+                <div class="flex gap-4 transition-transform duration-500"
+                    [style.transform]="'translateX(' + offsetX + 'px)'">
+                    @for (carro of carros; track carro.nombre; let i = $index) {
+                    <div class="relative transition-all duration-300 flex-shrink-0"
+                        [class.scale-110]="hoveredIndex === i">
+                        <img [src]="carro.imagen" [alt]="carro.nombre"
+                            class="w-32 h-20 object-cover rounded-lg cursor-pointer transition-all duration-300 shadow-md"
+                            [class.border-4]="hoveredIndex === i" [class.border-yellow-400]="hoveredIndex === i"
+                            [class.border-transparent]="hoveredIndex !== i" [class.brightness-100]="hoveredIndex === i"
+                            [class.brightness-75]="hoveredIndex !== i" (mouseenter)="onThumbnailHover(i)"
+                            (mouseleave)="onThumbnailLeave()" (click)="seleccionarCarro(i)" />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-1 text-center truncate">
+                            {{ carro.nombre }}
+                        </div>
+                    </div>
+                    }
+                </div>
+                <!-- Efecto de desvanecimiento en los bordes -->
+                <div
+                    class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent pointer-events-none">
+                </div>
+                <div
+                    class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent pointer-events-none">
+                </div>
+            </div>
+
+            <!-- Flecha derecha -->
+            <button (click)="siguiente()"
+                class="p-3 rounded-full bg-gray-800 hover:bg-yellow-600 transition-all duration-300 shadow-lg z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+</section>

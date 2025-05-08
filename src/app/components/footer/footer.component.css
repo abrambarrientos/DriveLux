@@ -1,0 +1,26 @@
+footer{
+    padding: 20px;
+}
+
+h1{
+    font-size: 1.6rem;
+    font-family: 'A4SPEED', sans-serif;
+  }
+
+
+
+.icon-container i {
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.icon-container i:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}
+
+p{
+    font-size: 1rem;
+    font-family: 'A4SPEED', sans-serif;
+    margin-top: 10px;
+  }

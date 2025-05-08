@@ -1,0 +1,51 @@
+
+  header{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: rgba(16, 16, 16, 0.178);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideInDown 1500ms ease-out;
+  }
+
+
+  .icono{
+    cursor: pointer;
+  }
+
+  h1{
+    font-size: 2rem;
+    font-family: 'A4SPEED', sans-serif;
+  }
+
+  a{
+    font-size: .75rem;
+    color: white;
+  }
+
+  #boton{
+    padding: 7px;
+  }
+
+  @keyframes slideInDown {
+    from {
+      transform: translate3d(-50%, -100%, 0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(-50%, 0, 0);
+      opacity: 1;
+    
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+

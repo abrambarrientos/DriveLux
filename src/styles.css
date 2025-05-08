@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+    --gray300: #000000;
+  }
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+@font-face {
+    font-family: 'A4SPEED';
+    src: url(/fonts/A4SPEED-Bold.ttf) format('truetype');
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
