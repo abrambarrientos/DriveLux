@@ -21,9 +21,7 @@ input:focus {
 }
 
 input{
-    margin-bottom: 40px;
     padding: 3px;
-    padding-left: 10px;
 }
 
 .container{

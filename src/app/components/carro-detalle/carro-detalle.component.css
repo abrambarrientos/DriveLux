@@ -1,243 +1,111 @@
 /* carro-detalle.component.css */
 .car-detail-container {
-  background-color: black;
-  color: white;
-  height: auto;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  /* p-8 equivalente */
-}
-
-.car-detail-wrapper {
-  max-width: 72rem;
-  /* max-w-6xl equivalente */
-  margin: 0 auto;
-  margin-top: 150px;
-}
-
-.car-detail-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  /* gap-8 equivalente */
-}
-
-@media (min-width: 768px) {
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px; /* p-8 equivalente */
+  }
+  
+  .car-detail-wrapper {
+    max-width: 72rem; /* max-w-6xl equivalente */
+    margin: 0 auto;
+  }
+  
   .car-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px; /* gap-8 equivalente */
+  }
+  
+  @media (min-width: 768px) {
+    .car-detail-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .car-image-container {
+    border-radius: 8px; /* rounded-lg equivalente */
+    overflow: hidden;
+  }
+  
+  .car-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .car-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .car-title {
+    font-size: 2.25rem; /* text-4xl equivalente */
+    font-weight: bold;
+    margin-bottom: 16px; /* mb-4 equivalente */
+    color: #eab308; /* text-yellow-500 equivalente */
+  }
+  
+  .specs-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* gap-4 equivalente */
+    margin-bottom: 32px; /* mb-8 equivalente */
   }
-}
-
-.car-image-container {
-  border-radius: 8px;
-  /* rounded-lg equivalente */
-  overflow: hidden;
-}
-
-.car-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.car-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.car-title {
-  font-size: 2.25rem;
-  /* text-4xl equivalente */
-  font-weight: bold;
-  margin-bottom: 16px;
-  /* mb-4 equivalente */
-  color: #eab308;
-  /* text-yellow-500 equivalente */
-}
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  /* gap-4 equivalente */
-  margin-bottom: 32px;
-  /* mb-8 equivalente */
-}
-
-.specs-title {
-  font-size: 1.25rem;
-  /* text-xl equivalente */
-  font-weight: 600;
-  /* font-semibold equivalente */
-  margin-bottom: 8px;
-  /* mb-2 equivalente */
-}
-
-.specs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  /* space-y-2 equivalente */
-}
-
-.spec-item {
-  display: flex;
-  align-items: center;
-}
-
-.spec-icon {
-  display: inline-block;
-  width: 8px;
-  /* w-2 equivalente */
-  height: 8px;
-  /* h-2 equivalente */
-  background-color: #eab308;
-  /* bg-yellow-500 equivalente */
-  margin-right: 8px;
-  /* mr-2 equivalente */
-  border-radius: 50%;
-}
-
-.tech-details {
-  background-color: rgb(17, 24, 39);
-  /* bg-gray-900 equivalente */
-  padding: 24px;
-  /* p-6 equivalente */
-  border-radius: 8px;
-  /* rounded-lg equivalente */
-}
-
-.tech-title {
-  font-size: 1.25rem;
-  /* text-xl equivalente */
-  font-weight: 600;
-  /* font-semibold equivalente */
-  margin-bottom: 16px;
-  /* mb-4 equivalente */
-}
-
-.tech-description {
-  color: rgb(209, 213, 219);
-  /* text-gray-300 equivalente */
-}
-
-.loading-container {
-  text-align: center;
-  padding: 80px 0;
-  /* py-20 equivalente */
-}
-
-.loading-text {
-  font-size: 1.25rem;
-  /* text-xl equivalente */
-}
-
-/* carro-detalle.component.css */
-.image-gallery {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 1rem 0;
-  scrollbar-width: thin;
-}
-
-.image-gallery img {
-  height: 180px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.image-gallery img:hover {
-  transform: scale(1.03);
-}
-
-.video-container {
-  margin: 2rem 0;
-  width: 100%;
-  max-width: 800px;
-}
-
-.video-container iframe {
-  width: 100%;
-  height: 450px;
-  border-radius: 8px;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .video-container iframe {
-    height: 250px;
+  
+  .specs-title {
+    font-size: 1.25rem; /* text-xl equivalente */
+    font-weight: 600; /* font-semibold equivalente */
+    margin-bottom: 8px; /* mb-2 equivalente */
   }
-
-  .image-gallery img {
-    height: 120px;
+  
+  .specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* space-y-2 equivalente */
   }
-}
-
-/* carro-detalle.component.css */
-.additional-images {
-  margin-top: 2rem;
-  padding: 1rem;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-image:hover {
-  transform: scale(1.03);
-  cursor: pointer;
-}
-
-.additional-images {
-  width: 100%;
-  height: auto;
-  padding: 20px;
-  gap: 20px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  mat-grid-list {
-    cols: 2 !important;
+  
+  .spec-item {
+    display: flex;
+    align-items: center;
   }
-}
-
-@media (max-width: 600px) {
-  mat-grid-list {
-    cols: 1 !important;
+  
+  .spec-icon {
+    display: inline-block;
+    width: 8px; /* w-2 equivalente */
+    height: 8px; /* h-2 equivalente */
+    background-color: #eab308; /* bg-yellow-500 equivalente */
+    margin-right: 8px; /* mr-2 equivalente */
+    border-radius: 50%;
   }
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  
+  .tech-details {
+    background-color: rgb(17, 24, 39); /* bg-gray-900 equivalente */
+    padding: 24px; /* p-6 equivalente */
+    border-radius: 8px; /* rounded-lg equivalente */
   }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
+  
+  .tech-title {
+    font-size: 1.25rem; /* text-xl equivalente */
+    font-weight: 600; /* font-semibold equivalente */
+    margin-bottom: 16px; /* mb-4 equivalente */
   }
-}
-
-h3 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-button{
-  padding: 5px;
-}
+  
+  .tech-description {
+    color: rgb(209, 213, 219); /* text-gray-300 equivalente */
+  }
+  
+  .loading-container {
+    text-align: center;
+    padding: 80px 0; /* py-20 equivalente */
+  }
+  
+  .loading-text {
+    font-size: 1.25rem; /* text-xl equivalente */
+  }
