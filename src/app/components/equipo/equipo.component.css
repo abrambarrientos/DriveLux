@@ -1,0 +1,25 @@
+main{
+    height: 100vh;
+}
+
+.sports-header {
+            margin-bottom: 10rem;
+            padding-top: 2rem;
+        }
+        
+        .card-container {
+            padding: 1.5rem;
+        }
+        
+        .sports-card {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        .card-image-container {
+            margin-bottom: 1.25rem;
+        }
+        
+        .card-title {
+            padding: 0.75rem 0;
+        }

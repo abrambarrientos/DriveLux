@@ -5,6 +5,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { CarroDetalleComponent } from './components/carro-detalle/carro-detalle.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { EquipoComponent } from './components/equipo/equipo.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'Nosotros', component: NosotrosComponent },
     { path: 'Preguntas', component: PreguntasComponent },
     { path: 'Contacto', component: ContactoComponent },
+    { path: 'Equipo', component: EquipoComponent },
     {
         path: 'carros/:id',
         loadComponent: () => import('./components/carro-detalle/carro-detalle.component').then(m => m.CarroDetalleComponent)
