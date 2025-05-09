@@ -1,53 +1,52 @@
-<div class=" bg-black text-white h-full w-full flex items-center justify-center">
-    <div class=" max-w-6xl mx-auto ">
-      @if (carro) {
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Imagen -->
-          <div class="rounded-lg overflow-hidden">
-            <img [src]="carro.imagen" [alt]="carro.nombre" class="w-full h-auto object-cover">
-          </div>
-  
-          <!-- Detalles -->
-          <div>
-            <h1 class="text-4xl font-bold mb-4 text-yellow-500">{{ carro.nombre }}</h1>
-            
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Especificaciones</h3>
-                <ul class="space-y-2">
-                  @for (spec of carro.caracteristicasIzq; track spec) {
-                    <li class="flex items-center">
-                      <span class="inline-block w-2 h-2 bg-yellow-500 mr-2"></span>
-                      {{ spec }}
-                    </li>
-                  }
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2">Rendimiento</h3>
-                <ul class="space-y-2">
-                  @for (perf of carro.caracteristicasDer; track perf) {
-                    <li class="flex items-center">
-                      <span class="inline-block w-2 h-2 bg-yellow-500 mr-2"></span>
-                      {{ perf }}
-                    </li>
-                  }
-                </ul>
-              </div>
+<div class="car-detail-container">
+  <div class="car-detail-wrapper">
+    @if (carro) {
+      <div class="car-detail-grid">
+        <!-- Imagen -->
+        <div class="car-image-container">
+          <img [src]="carro.imagen" [alt]="carro.nombre" class="car-image">
+        </div>
+
+        <!-- Detalles -->
+        <div class="car-details">
+          <h1 class="car-title">{{ carro.nombre }}</h1>
+          
+          <div class="specs-grid">
+            <div class="specs-column">
+              <h3 class="specs-title">Especificaciones</h3>
+              <ul class="specs-list">
+                @for (spec of carro.caracteristicasIzq; track spec) {
+                  <li class="spec-item">
+                    <span class="spec-icon"></span>
+                    {{ spec }}
+                  </li>
+                }
+              </ul>
             </div>
-  
-            <!-- Información adicional -->
-            <div class="bg-gray-900 p-6 rounded-lg">
-              <h3 class="text-xl font-semibold mb-4">Detalles técnicos</h3>
-              <p class="text-gray-300">Aquí puedes añadir más información técnica detallada sobre el vehículo.</p>
+            <div class="specs-column">
+              <h3 class="specs-title">Rendimiento</h3>
+              <ul class="specs-list">
+                @for (perf of carro.caracteristicasDer; track perf) {
+                  <li class="spec-item">
+                    <span class="spec-icon"></span>
+                    {{ perf }}
+                  </li>
+                }
+              </ul>
             </div>
           </div>
+
+          <!-- Información adicional -->
+          <div class="tech-details">
+            <h3 class="tech-title">Detalles técnicos</h3>
+            <p class="tech-description">Aquí puedes añadir más información técnica detallada sobre el vehículo.</p>
+          </div>
         </div>
-        
-      } @else {
-        <div class="text-center py-20">
-          <p class="text-xl">Cargando información del vehículo...</p>
-        </div>
-      }
-    </div>
+      </div>
+    } @else {
+      <div class="loading-container">
+        <p class="loading-text">Cargando información del vehículo...</p>
+      </div>
+    }
   </div>
+</div>
