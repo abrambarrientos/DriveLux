@@ -2,7 +2,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Carro } from '../../interfaces/carro.interface';
+import { Carro } from '../../interfaces/carro.interface'; // Cambia la ruta según tu estructura de carpetas
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carro-detalle',
@@ -11,7 +12,9 @@ import { Carro } from '../../interfaces/carro.interface';
   templateUrl: './carro-detalle.component.html', // Referencia al archivo HTML externo
   styleUrl: './carro-detalle.component.css' // Puedes añadir aquí archivos CSS si los necesitas
 })
-export class CarroDetalleComponent {
+export class CarroDetalleComponent implements OnInit {
+
+  
   private route = inject(ActivatedRoute);
   carro: Carro | undefined;
 
@@ -19,6 +22,7 @@ export class CarroDetalleComponent {
   private carros: Carro[] = [
     {
       id: 1,
+      marca: 'Toyota',
       nombre: 'Toyota Supra MK5',
       imagen: '/imgCarros/ToyotaSupra2.png',
       caracteristicasIzq: ['Motor 3.0L', 'Tracción trasera'],
@@ -26,6 +30,7 @@ export class CarroDetalleComponent {
     },
     {
       id: 2,
+      marca: 'Mazda',
       nombre: 'Mazda RX-7 FD',
       imagen: '/imgCarros/mazda2.png',
       caracteristicasIzq: ['Motor Wankel 1.3L', 'Peso: 1300kg'],
@@ -33,6 +38,7 @@ export class CarroDetalleComponent {
     },
     {
       id: 3,
+      marca: 'Nissan',
       nombre: 'Nissan GT-R R35',
       imagen: '/imgCarros/nissangtr2.png',
       caracteristicasIzq: ['3.8L V6 Twin Turbo', 'AWD'],
@@ -40,6 +46,7 @@ export class CarroDetalleComponent {
     },
     {
       id: 4,
+      marca: 'Porsche',
       nombre: 'Porsche 911 Turbo S',
       imagen: '/imgCarros/porche2.png',
       caracteristicasIzq: ['3.8L Flat-6 Turbo', 'AWD'],
@@ -47,6 +54,7 @@ export class CarroDetalleComponent {
     },
     {
       id: 5,
+      marca: 'Ford',
       nombre: 'Ford Mustang Shelby GT500',
       imagen: '/imgCarros/Mustang.png',
       caracteristicasIzq: ['5.2L Supercharged V8', 'Tracción trasera'],
@@ -54,6 +62,7 @@ export class CarroDetalleComponent {
     },
     {
       id: 6,
+      marca: 'Chevrolet',
       nombre: 'Chevrolet Corvette C8',
       imagen: '/imgCarros/chevrolet2.png',
       caracteristicasIzq: ['6.2L V8', 'Motor central'],

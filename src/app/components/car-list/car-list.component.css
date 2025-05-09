@@ -1,0 +1,39 @@
+/* Efecto hover para las cards */
+.bg-gray-800:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Animación para el botón de detalles */
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Transición suave para las imágenes */
+img {
+  transition: transform 0.5s ease;
+}
+
+/* Estilo para el input de búsqueda */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+
+}
+
+input{
+    padding: 3px;
+}
+
+.container{
+    width: 100%;
+    height: auto;
+    margin-top: 200px;
+}
+
+div{
+    padding: 5px;
+}
+
+button{
+    padding: 5px;
+}
