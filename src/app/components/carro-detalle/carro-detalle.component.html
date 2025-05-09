@@ -1,13 +1,13 @@
-<div class="car-detail-container">
+<div class="car-detail-container flex flex-col">
   <div class="car-detail-wrapper">
     @if (carro) {
       <div class="car-detail-grid">
-        <!-- Imagen -->
+        <!-- Imagen principal -->
         <div class="car-image-container">
           <img [src]="carro.imagen" [alt]="carro.nombre" class="car-image">
         </div>
 
-        <!-- Detalles -->
+        <!-- Detalles del vehículo -->
         <div class="car-details">
           <h1 class="car-title">{{ carro.nombre }}</h1>
           
@@ -36,10 +36,10 @@
             </div>
           </div>
 
-          <!-- Información adicional -->
+          <!-- Información técnica -->
           <div class="tech-details">
             <h3 class="tech-title">Detalles técnicos</h3>
-            <p class="tech-description">Aquí puedes añadir más información técnica detallada sobre el vehículo.</p>
+            <p class="tech-description">{{ carro.descripcionTecnica || 'Información técnica detallada del vehículo' }}</p>
           </div>
         </div>
       </div>
@@ -50,5 +50,47 @@
     }
   </div>
 
-  
+  <!-- Galería de imágenes adicionales -->
+  @if (carro?.imagenesAdicionales && carro?.imagenesAdicionales?.length) {
+  <section class="additional-images flex flex-col items-center justify-center w-full ">
+    <h3 class="font-['A4SPEED']  w-full">GALERIA DE IMAGENES</h3>
+    
+    <div class="w-full">
+       <mat-grid-list cols="3" rowHeight="2:1" gutterSize="10px">
+      @for (img of carro?.imagenesAdicionales; track img; let i = $index) {
+        <mat-grid-tile>
+          <img [src]="img" [alt]="carro?.marca" class="gallery-image" >
+        </mat-grid-tile>
+      }
+    </mat-grid-list>
+    </div>
+   
+  </section>
+}
+
+  <!-- Reproductor de video -->
+ <!-- Video con pipe seguro - versión definitiva -->
+<!-- carro-detalle.component.html -->
+@if (carro) {
+  @if (carro.video) {
+    <div class="video-container">
+      <h3 class="font-['A4SPEED']">Video del vehículo</h3>
+      <iframe
+        width="560"
+        height="315"
+        [src]="carro.video | safeUrl"
+        title="Video del {{carro.nombre}}"
+        frameborder="0"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      ></iframe>
+    </div>
+  }
+}
+
+<div class="mt-20 text-center">
+          <button class="px-8 py-4 bg-transparent border-2 border-red-600 text-red-600 font-['A4SPEED'] text-xl hover:bg-red-600 hover:text-white transition">
+            PROXIMAMENTE A LA VENTA
+          </button>
+        </div>
 </div>
