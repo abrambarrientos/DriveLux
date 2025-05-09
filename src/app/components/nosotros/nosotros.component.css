@@ -1,0 +1,23 @@
+section{
+    margin-top: 110px;
+}
+
+.sub p{
+    text-align: center;
+}
+
+.container{
+    margin-bottom: 40px;
+}
+
+div{
+    padding: 5px;
+}
+
+button{
+    padding: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}

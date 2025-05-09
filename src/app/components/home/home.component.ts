@@ -1,11 +1,14 @@
-import { Component, HostListener, OnInit, OnDestroy, ViewChild,ElementRef} from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Carro } from '../../interfaces/carro.interface';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -20,12 +23,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   isHomeActive = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.updateImage(1);
     this.calculateMaxScroll();
-    
+
     // Verificar la ruta actual y sus cambios
     this.checkCurrentRoute();
     this.router.events
@@ -58,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   onScroll() {
     if (!this.isHomeActive) return;
     if (Date.now() - this.lastFrameUpdate < 10) return;
-    
+
     this.lastFrameUpdate = Date.now();
     const scrollPosition = window.scrollY;
     const scrollFraction = scrollPosition / this.maxScroll;
@@ -89,36 +92,42 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   carros: Carro[] = [
     {
+      id: 1,
       nombre: 'Toyota Supra MK5',
       imagen: '/imgCarros/ToyotaSupra2.png',
       caracteristicasIzq: ['Motor 3.0L', 'Tracción trasera'],
       caracteristicasDer: ['340 HP', 'Automático 8 veloc']
     },
     {
+      id: 2,
       nombre: 'Mazda RX-7 FD',
       imagen: '/imgCarros/mazda2.png',
       caracteristicasIzq: ['Motor Wankel 1.3L', 'Peso: 1300kg'],
       caracteristicasDer: ['276 HP', 'Manual 5 veloc']
     },
     {
+      id: 3,
       nombre: 'Nissan GT-R R35',
       imagen: '/imgCarros/nissangtr2.png',
       caracteristicasIzq: ['3.8L V6 Twin Turbo', 'AWD'],
       caracteristicasDer: ['565 HP', '0-100 km/h: 2.7s']
     },
     {
+      id: 4,
       nombre: 'Porsche 911 Turbo S',
       imagen: '/imgCarros/porche2.png',
       caracteristicasIzq: ['3.8L Flat-6 Turbo', 'AWD'],
       caracteristicasDer: ['650 HP', '0-100: 2.7s']
     },
     {
+      id: 5,
       nombre: 'Ford Mustang Shelby GT500',
       imagen: '/imgCarros/Mustang.png',
       caracteristicasIzq: ['5.2L Supercharged V8', 'Tracción trasera'],
       caracteristicasDer: ['760 HP', 'Manual 7 veloc']
     },
     {
+      id: 6,
       nombre: 'Chevrolet Corvette C8',
       imagen: '/imgCarros/chevrolet2.png',
       caracteristicasIzq: ['6.2L V8', 'Motor central'],
@@ -142,11 +151,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.hoveredIndex = this.currentIndex;
   }
 
-  seleccionarCarro(index: number) {
-    this.currentIndex = index;
-    this.hoveredIndex = index;
-    this.onThumbnailHover(index);
-  }
 
   anterior() {
     this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.carros.length - 1;
@@ -162,12 +166,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.hoveredIndex !== null ? this.carros[this.hoveredIndex] : null;
   }
 
-  verDetalleCarro(id: number) {
-    // Navega a la ruta de detalle manteniendo header/footer
-    this.router.navigate(['/carro', id]);
+  // Modifica la función de selección
+  seleccionarCarro(id: number) {
+    const index = this.carros.findIndex(c => c.id === id);
+    if (index !== -1) {
+      this.currentIndex = index;
+      this.hoveredIndex = index;
+      this.onThumbnailHover(index);
+    }
 
-    // Opcional: Scroll al inicio de la página
-    window.scrollTo(0, 0);
   }
-  
 }
