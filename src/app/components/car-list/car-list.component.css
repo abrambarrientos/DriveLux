@@ -39,3 +39,8 @@ div{
 button{
     padding: 5px;
 }
+
+form{
+  height: 400px;
+  padding: 20px;
+}
