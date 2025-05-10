@@ -12,24 +12,26 @@ import { AuthService } from '../../servicios/auth.service';
 })
 export class HeaderComponent {
   menuOpen = false;
-
+  nombre:string =' ';
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
 
-
-
   estaLogueado = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,  private router: Router) {}
 
   ngOnInit() {
     this.authService.loginStatus$.subscribe(
       estado => this.estaLogueado = estado
     );
+    this.authService.username$.subscribe(name => {
+    this.nombre = name ?? '';
+});
   }
   logout(): void {
     this.authService.logout();
+    this.router.navigate(['/']);
   }
   
 
