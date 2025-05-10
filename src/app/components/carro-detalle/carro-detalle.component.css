@@ -69,6 +69,17 @@
   /* mb-8 equivalente */
 }
 
+a{
+  padding: 10px;
+  border-radius: 3px;
+  font-family: 'A4SPEED';
+  transition: all .3s ease;
+}
+
+a:hover{
+  transform: scale(1.9);
+}
+
 .specs-title {
   font-size: 1.25rem;
   /* text-xl equivalente */

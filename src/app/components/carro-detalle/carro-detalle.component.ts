@@ -10,13 +10,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Router,RouterModule} from '@angular/router';
 
 
 
 @Component({
   selector: 'app-carro-detalle',
   standalone: true,
-  imports: [CommonModule, SafeUrlPipe, MatGridListModule, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, SafeUrlPipe, MatGridListModule, MatCardModule, MatButtonModule, MatIconModule,RouterModule],
   templateUrl: './carro-detalle.component.html', // Referencia al archivo HTML externo
   styleUrl: './carro-detalle.component.css' // Puedes añadir aquí archivos CSS si los necesitas
 })
@@ -68,7 +69,7 @@ export class CarroDetalleComponent implements OnInit {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi9PpEo-ok4H8LDakoQ5ll1OQdm_nGNUCv-A&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT10J9XcsxdNbIEvbZsF1h4AIPbWn-En9mHuQ&s'
       ],
-      video: 'https://www.youtube.com/watch?v=kAyTAy93vBk'
+      video: 'https://www.youtube.com/embed/kAyTAy93vBk'
     },
     {
       id: 3,
@@ -89,7 +90,7 @@ export class CarroDetalleComponent implements OnInit {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg6nn9MXYuPdWASbnzwK7Qk9BSwyGtGxOF7g&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtW_IX-DYALr3fdToLaFcV7iir3V0OTXOZkw&s'
       ],
-      video: 'https://www.youtube.com/watch?v=Jvr0U2ZInoE',
+      video: 'https://www.youtube.com/embed/Jvr0U2ZInoE',
     },
     {
       id: 4,
@@ -110,7 +111,7 @@ export class CarroDetalleComponent implements OnInit {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReB9jBBmvSZGizV-6BtVtlB41YKItJJFHJQQ&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG1VCwtyWkmmAVQDj5H83soxoe6t5Ggu8DHQ&s'
       ],
-      video: 'https://www.youtube.com/watch?v=nT2mjvWC3e8',
+      video: 'https://www.youtube.com/embed/nT2mjvWC3e8',
     },
     {
       id: 5,
@@ -152,7 +153,7 @@ export class CarroDetalleComponent implements OnInit {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLMOnSuRm5z-mmlUaLI_jVhWP7o1Z0-kBH8Q&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4DrKOXqE3Tr_RYTGa6GaaYWYse-62WhDStg&s'
       ],
-      video: 'https://www.youtube.com/watch?v=HMFQ0RvvsxI',
+      video: 'https://www.youtube.com/embed/UzruyIE3_g0',
     },
 
   ];
