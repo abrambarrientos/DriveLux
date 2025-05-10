@@ -6,6 +6,7 @@ import { CarroDetalleComponent } from './components/carro-detalle/carro-detalle.
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { EquipoComponent } from './components/equipo/equipo.component';
+import { LoginComponent } from './components/login/login.component';
 import { CarroListComponent } from './components/car-list/car-list.component';
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'Preguntas', component: PreguntasComponent },
     { path: 'Contacto', component: ContactoComponent },
     { path: 'Equipo', component: EquipoComponent },
+    { path: 'Login', loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent) },
     { path: 'Reserva', component: CarroListComponent },
     {
         path: 'carros/:id',

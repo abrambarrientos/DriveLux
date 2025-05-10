@@ -1,0 +1,55 @@
+<section class="bg-black w-full min-h-screen flex flex-col items-center justify-center px-4">
+    <form (ngSubmit)="login()" #loginForm="ngForm" class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md space-y-6">
+      <h2 class="text-2xl font-bold text-center text-gray-800">Iniciar Sesión</h2>
+  
+      <!-- Usuario -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1" for="username">Usuario</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          required
+          #userInput="ngModel"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        />
+        @if (userInput.invalid && userInput.touched) {
+          <div class="text-red-500 text-sm mt-1">El usuario es obligatorio.</div>
+        }
+      </div>
+  
+      <!-- Contraseña -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1" for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          #passInput="ngModel"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        />
+        @if (passInput.invalid && passInput.touched) {
+          <div class="text-red-500 text-sm mt-1">La contraseña es obligatoria.</div>
+        }
+      </div>
+  
+      <!-- Botón -->
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 rounded transition duration-300 disabled:opacity-50"
+        
+      >
+        Iniciar sesión
+      </button>
+  
+      <!-- Error -->
+      @if (loginError) {
+        <p class="text-center text-red-500 text-sm">Usuario o contraseña incorrectos</p>
+      }
+    </form>
+  </section>
+  
