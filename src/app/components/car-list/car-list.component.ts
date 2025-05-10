@@ -78,15 +78,32 @@ export class CarroListComponent implements OnInit {
 
   onSubmit(): void {
     // Marcar todos los campos como touched
-    this.markFormGroupTouched(this.carForm);
+   this.markFormGroupTouched(this.carForm);
 
-    if (this.carForm.valid) {
-      console.log('Formulario enviado:', this.carForm.value);
-      alert('Solicitud enviada correctamente');
-      this.showModal = false;
-    } else {
-      console.log('Formulario inválido', this.getFormErrors());
-    }
+  if (this.carForm.valid) {
+    const formData = this.carForm.value;
+    console.log('Formulario enviado:', formData);
+
+    // Obtener los datos anteriores del localStorage o inicializar un arreglo vacío
+    const storedData = localStorage.getItem('compras');
+    const submissions = storedData ? JSON.parse(storedData) : [];
+
+    // Agregar el nuevo formulario al arreglo
+    submissions.push({
+      ...formData,
+      carId: this.selectedCar?.id || null,
+      carName: this.selectedCar?.name || null,
+      timestamp: new Date().toISOString()
+    });
+
+    // Guardar de nuevo en localStorage
+    localStorage.setItem('compras', JSON.stringify(submissions));
+
+    alert('Solicitud enviada correctamente');
+    this.showModal = false;
+  } else {
+    console.log('Formulario inválido', this.getFormErrors());
+  }
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {

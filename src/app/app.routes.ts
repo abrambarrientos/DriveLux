@@ -8,6 +8,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { EquipoComponent } from './components/equipo/equipo.component';
 import { LoginComponent } from './components/login/login.component';
 import { CarroListComponent } from './components/car-list/car-list.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,4 +24,7 @@ export const routes: Routes = [
         path: 'carros/:id',
         loadComponent: () => import('./components/carro-detalle/carro-detalle.component').then(m => m.CarroDetalleComponent)
     },
+    {
+        path: 'admin', component: AdminComponent
+    }
 ];
