@@ -1,5 +1,5 @@
-main{
-    height: 80vh;
+.main{
+    height: auto;
 }
 
 .custom-form {
@@ -10,14 +10,9 @@ main{
 }
 
 
-section{
-    height: 100vh;
-}
-
-
 form{
     width: 400px;
-    height: 1300px;
+    height: auto;
     padding: 20px;
     
 }
