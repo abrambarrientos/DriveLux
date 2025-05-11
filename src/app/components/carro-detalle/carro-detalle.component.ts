@@ -2,7 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Carro } from '../../interfaces/carro.interface'; // Cambia la ruta según tu estructura de carpetas
+import { Carro } from '../../interfaces/carro.interface'; 
 import { OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
@@ -18,8 +18,8 @@ import { Router,RouterModule} from '@angular/router';
   selector: 'app-carro-detalle',
   standalone: true,
   imports: [CommonModule, SafeUrlPipe, MatGridListModule, MatCardModule, MatButtonModule, MatIconModule,RouterModule],
-  templateUrl: './carro-detalle.component.html', // Referencia al archivo HTML externo
-  styleUrl: './carro-detalle.component.css' // Puedes añadir aquí archivos CSS si los necesitas
+  templateUrl: './carro-detalle.component.html', 
+  styleUrl: './carro-detalle.component.css' 
 })
 export class CarroDetalleComponent implements OnInit {
 
@@ -33,7 +33,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 1,
       marca: 'Toyota',
       nombre: 'Toyota Supra MK5',
-      imagen: '/imgCarros/ToyotaSupra2.png',
+      imagen: 'imgCarros/ToyotaSupra2.png',
       caracteristicasIzq: ['Motor 3.0L', 'Tracción trasera'],
       caracteristicasDer: ['340 HP', 'Automático 8 veloc'],
       descripcionTecnica: ['El Toyota Supra MK5 es un deportivo emblemático con motor 3.0L turboalimentado de 340 HP, tracción trasera y transmisión automática de 8 velocidades. Su chasis ligero y suspensión ajustable ofrecen una conducción ágil, mientras que el diferencial electrónico activo mejora la tracción. Incluye modos de conducción personalizables y un sistema de escape deportivo que optimiza el rendimiento y el sonido.'],
@@ -54,7 +54,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 2,
       marca: 'Mazda',
       nombre: 'Mazda RX-7 FD',
-      imagen: '/imgCarros/mazda2.png',
+      imagen: 'imgCarros/mazda2.png',
       caracteristicasIzq: ['Motor Wankel 1.3L', 'Peso: 1300kg'],
       caracteristicasDer: ['276 HP', 'Manual 5 veloc'],
       descripcionTecnica: ['El Mazda RX-7 FD destaca por su innovador motor Wankel rotativo de 1.3L que entrega 276 HP, acoplado a una caja manual de 5 velocidades. Con un peso de solo 1300 kg, su diseño equilibrado y tracción trasera brindan maniobrabilidad excepcional. El sistema de turbo secuencial y la distribución de peso 50/50 lo hacen ideal para curvas cerradas.'],
@@ -75,7 +75,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 3,
       marca: 'Nissan',
       nombre: 'Nissan GT-R R35',
-      imagen: '/imgCarros/nissangtr2.png',
+      imagen: 'imgCarros/nissangtr2.png',
       caracteristicasIzq: ['3.8L V6 Twin Turbo', 'AWD'],
       caracteristicasDer: ['565 HP', '0-100 km/h: 2.7s'],
       descripcionTecnica: ['Conocido como "Godzilla", el GT-R R35 monta un motor V6 biturbo de 3.8L y 565 HP, combinado con tracción integral ATTESA E-TS y transmisión de doble embrague. Acelera de 0-100 km/h en 2.7 segundos gracias a su sistema de lanzamiento Launch Control. La suspensión neumática y la aerodinámica activa aseguran estabilidad a altas velocidades.'],
@@ -96,7 +96,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 4,
       marca: 'Porsche',
       nombre: 'Porsche 911 Turbo S',
-      imagen: '/imgCarros/porche2.png',
+      imagen: 'imgCarros/porche2.png',
       caracteristicasIzq: ['3.8L Flat-6 Turbo', 'AWD'],
       caracteristicasDer: ['650 HP', '0-100: 2.7s'],
       descripcionTecnica: ['El 911 Turbo S equipa un motor bóxer de 3.8L con turboalimentación variable que genera 650 HP. Su tracción integral Porsche Traction Management (PTM) y transmisión PDK de 8 velocidades permiten aceleraciones brutales (0-100 km/h en 2.7s). Incluye frenos cerámicos PCCB, alerón activo y chasis adaptativo para máxima precisión.'],
@@ -117,7 +117,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 5,
       marca: 'Ford',
       nombre: 'Ford Mustang Shelby GT500',
-      imagen: '/imgCarros/Mustang.png',
+      imagen: 'imgCarros/Mustang.png',
       caracteristicasIzq: ['5.2L Supercharged V8', 'Tracción trasera'],
       caracteristicasDer: ['760 HP', 'Manual 7 veloc'],
       descripcionTecnica: ['Este muscle car lleva un motor V8 sobrealimentado de 5.2L (760 HP) con transmisión manual de 7 velocidades. La tracción trasera y el diferencial de deslizamiento limitado mejoran la salida en rectas, mientras que los frenos Brembo y el sistema MagneRide ofrecen control en pista. Su carrocería aerodinámica incluye un splitter frontal y alerón ajustable.'],
@@ -138,7 +138,7 @@ export class CarroDetalleComponent implements OnInit {
       id: 6,
       marca: 'Chevrolet',
       nombre: 'Chevrolet Corvette C8',
-      imagen: '/imgCarros/chevrolet2.png',
+      imagen: 'imgCarros/chevrolet2.png',
       caracteristicasIzq: ['6.2L V8', 'Motor central'],
       caracteristicasDer: ['495 HP', '0-100: 2.9s'],
       descripcionTecnica: ['Primer Corvette con motor central: un V8 de 6.2L y 495 HP acoplado a una caja automática de doble embrague. Acelera de 0-100 km/h en 2.9 segundos gracias a su distribución de peso 40/60. Incluye suspensión ajustable Magnetic Ride Control 4.0, sistema de escape activo y modo Track para circuitos. El chasis de aluminio reduce peso sin sacrificar rigidez.'],
