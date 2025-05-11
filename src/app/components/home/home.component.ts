@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private updateImage(frame: number) {
-    this.currentImageSrc = `/FramesHero/ezgif-frame-${this.pad(frame)}.jpg`;
+    this.currentImageSrc = `FramesHero/ezgif-frame-${this.pad(frame)}.jpg`;
   }
 
   @ViewChild('contenedorCarrusel') contenedorCarrusel!: ElementRef;
@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 1,
       marca: 'Toyota',
       nombre: 'Toyota Supra MK5',
-      imagen: '/imgCarros/ToyotaSupra2.png',
+      imagen: 'imgCarros/ToyotaSupra2.png',
       caracteristicasIzq: ['Motor 3.0L', 'Tracción trasera'],
       caracteristicasDer: ['340 HP', 'Automático 8 veloc']
     },
@@ -123,7 +123,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 2,
       marca: 'Mazda',
       nombre: 'Mazda RX-7 FD',
-      imagen: '/imgCarros/mazda2.png',
+      imagen: 'imgCarros/mazda2.png',
       caracteristicasIzq: ['Motor Wankel 1.3L', 'Peso: 1300kg'],
       caracteristicasDer: ['276 HP', 'Manual 5 veloc']
     },
@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 3,
       marca: 'Nissan',
       nombre: 'Nissan GT-R R35',
-      imagen: '/imgCarros/nissangtr2.png',
+      imagen: 'imgCarros/nissangtr2.png',
       caracteristicasIzq: ['3.8L V6 Twin Turbo', 'AWD'],
       caracteristicasDer: ['565 HP', '0-100 km/h: 2.7s']
     },
@@ -139,7 +139,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 4,
       marca: 'Porsche',
       nombre: 'Porsche 911 Turbo S',
-      imagen: '/imgCarros/porche2.png',
+      imagen: 'imgCarros/porche2.png',
       caracteristicasIzq: ['3.8L Flat-6 Turbo', 'AWD'],
       caracteristicasDer: ['650 HP', '0-100: 2.7s']
     },
@@ -147,7 +147,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 5,
       marca: 'Ford',
       nombre: 'Ford Mustang Shelby GT500',
-      imagen: '/imgCarros/Mustang.png',
+      imagen: 'imgCarros/Mustang.png',
       caracteristicasIzq: ['5.2L Supercharged V8', 'Tracción trasera'],
       caracteristicasDer: ['760 HP', 'Manual 7 veloc']
     },
@@ -155,7 +155,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       id: 6,
       marca: 'Chevrolet',
       nombre: 'Chevrolet Corvette C8',
-      imagen: '/imgCarros/chevrolet2.png',
+      imagen: 'imgCarros/chevrolet2.png',
       caracteristicasIzq: ['6.2L V8', 'Motor central'],
       caracteristicasDer: ['495 HP', '0-100: 2.9s']
     },
