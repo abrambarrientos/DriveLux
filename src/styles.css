@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: 'A4SPEED';
-    src: url(/fonts/A4SPEED-Bold.ttf) format('truetype');
+    src: url(fonts/A4SPEED-Bold.ttf) format('truetype');
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
