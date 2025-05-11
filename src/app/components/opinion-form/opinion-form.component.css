@@ -1,0 +1,31 @@
+main{
+    height: 80vh;
+}
+
+.custom-form {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+section{
+    height: 100vh;
+}
+
+
+form{
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    
+}
+
+.container{
+    margin-top: 100px;
+}
+
+input{
+    padding: 5px;
+}

@@ -1,5 +1,13 @@
-<section class="image-container">
+<section class="image-container flex justify-center items-center">
     <img [src]="currentImageSrc" alt="Moto Frame" class="scroll-image" />
+    <h1 class="scroll-text text-amber-400" [ngStyle]="{
+      opacity: textOpacity,
+      transform: 'translateY(' + textTranslateY + 'px) scale(' + textScale + ')'
+    }">
+        Bienvenido <br>al Mundo del Motor
+    </h1>
+
+
 </section>
 <main>
 </main>

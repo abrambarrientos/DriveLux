@@ -15,11 +15,11 @@
         <ul class="flex items-center justify-center gap-8 text-white font-bold">
           <a [routerLink]="['/Nosotros']">¿Quienes Somos?</a>
           <a [routerLink]="['/Servicios']">Nuestros Servicios</a>
-          <a [routerLink]="['/Contacto']">Contacto</a>
-          <a [routerLink]="['/Preguntas']">Preguntas y respuestas</a>
+          <a [routerLink]="['/Opinion']">Contacto</a>
+          <!-- <a [routerLink]="['/Preguntas']">Preguntas y respuestas</a> -->
           <a [routerLink]="['/Reserva']">Reserva aqui</a>
           @if(estaLogueado){
-            <a [routerLink]="['/admin']">Admin</a>
+            <a [routerLink]="['/admin']"><mat-icon>settings</mat-icon></a>
           }
         </ul>
       </nav>
@@ -35,8 +35,9 @@
 } @else {
   <!-- Si ya está logueado, muestra mensaje y botón para cerrar sesión -->
   <div class="hidden lg:flex items-center flex-1/3 justify-end gap-4 text-white">
+    {{nombre}}
     <button (click)="logout()" class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-300" >
-      {{nombre}}
+      Cerrar sesion
     </button>
   </div>
 }

@@ -41,6 +41,96 @@ button{
 }
 
 form{
-  height: 400px;
-  padding: 20px;
+  height: 350px;
+}
+
+.form{
+  margin-top: 50px;
+}
+
+.modal{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  padding-left: 40px;
+}
+
+textarea{
+  padding-left: 40px;
+}
+
+option{
+  padding-left: 40px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  transition: all 0.3s ease;
+}
+
+/* Estilo para los checkboxes personalizados */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4b5563;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Estilo para los radio buttons personalizados */
+input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+/* Scrollbar personalizado para el modal */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
 }

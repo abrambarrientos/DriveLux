@@ -1,10 +1,17 @@
-<section class="bg-black w-full min-h-screen flex flex-col items-center justify-center px-4">
-    <form (ngSubmit)="login()" #loginForm="ngForm" class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md space-y-6">
-      <h2 class="text-2xl font-bold text-center text-gray-800">Iniciar Sesión</h2>
-  
-      <!-- Usuario -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1" for="username">Usuario</label>
+<section class="bg-gradient-to-b from-gray-900 to-black w-full min-h-screen flex items-center justify-center p-4">
+  <form (ngSubmit)="login()" #loginForm="ngForm" class="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 p-8 w-full max-w-md space-y-8 transform transition-all hover:scale-[1.01] duration-300">
+    <!-- Encabezado con efecto neón -->
+    <div class="text-center">
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent tracking-wide">
+        INICIAR SESIÓN
+      </h2>
+      <p class="text-gray-400 mt-2">Accede a tu cuenta de motor</p>
+    </div>
+
+    <!-- Campo Usuario -->
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-yellow-400 uppercase tracking-wider">Usuario</label>
+      <div class="relative">
         <input
           type="text"
           id="username"
@@ -12,16 +19,22 @@
           [(ngModel)]="username"
           required
           #userInput="ngModel"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 p-3 pl-10 transition-all"
+          placeholder="Tu usuario"
         />
-        @if (userInput.invalid && userInput.touched) {
-          <div class="text-red-500 text-sm mt-1">El usuario es obligatorio.</div>
-        }
+
       </div>
-  
-      <!-- Contraseña -->
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1" for="password">Contraseña</label>
+      @if (userInput.invalid && userInput.touched) {
+        <div class="flex items-center text-red-400 text-sm mt-1">
+          El usuario es obligatorio
+        </div>
+      }
+    </div>
+
+    <!-- Campo Contraseña -->
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-yellow-400 uppercase tracking-wider">Contraseña</label>
+      <div class="relative">
         <input
           type="password"
           id="password"
@@ -29,27 +42,44 @@
           [(ngModel)]="password"
           required
           #passInput="ngModel"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 p-3 pl-10 transition-all"
+          placeholder="Tu contraseña"
         />
-        @if (passInput.invalid && passInput.touched) {
-          <div class="text-red-500 text-sm mt-1">La contraseña es obligatoria.</div>
-        }
       </div>
-  
-      <!-- Botón -->
-      <button
-        type="submit"
-        [disabled]="loginForm.invalid"
-        class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 rounded transition duration-300 disabled:opacity-50"
-        
-      >
-        Iniciar sesión
-      </button>
-  
-      <!-- Error -->
-      @if (loginError) {
-        <p class="text-center text-red-500 text-sm">Usuario o contraseña incorrectos</p>
+      @if (passInput.invalid && passInput.touched) {
+        <div class="flex items-center text-red-400 text-sm mt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+          La contraseña es obligatoria
+        </div>
       }
-    </form>
-  </section>
-  
+    </div>
+
+    <!-- Botón de Login -->
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid"
+      class="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed uppercase tracking-wider flex items-center justify-center"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+      ACCEDER
+    </button>
+
+    <!-- Mensaje de error -->
+    @if (loginError) {
+      <div class="bg-red-900/30 border border-red-600 text-red-100 px-4 py-3 rounded-lg flex items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        <div>
+          <p class="font-medium">Error de autenticación</p>
+          <p class="text-sm">Usuario o contraseña incorrectos</p>
+        </div>
+      </div>
+    }
+
+  </form>
+</section>

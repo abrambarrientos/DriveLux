@@ -1,92 +1,101 @@
+<section class="bg-black w-full min-h-screen flex flex-col items-center justify-center px-4 py-8">
+  <h2 class="text-2xl font-bold mb-4 text-center text-white">Solicitudes Registradas</h2>
 
+  <mat-tab-group (selectedTabChange)="cambiarVista($event.index === 1)" class="w-[80%]">
+    <!-- Pestaña de Compras -->
+    <mat-tab label="COMPRAS REALIZADAS">
+      @if (solicitudes.length > 0) {
+        <div class="overflow-x-auto mt-4">
+          <table class="min-w-full border border-gray-300 rounded-lg shadow-md text-sm bg-white">
+            <thead class="bg-gray-100 text-gray-700">
+              <tr>
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Email</th>
+                <th class="px-4 py-2">Método Pago</th>
+                <th class="px-4 py-2">Color</th>
+                <th class="px-4 py-2">Características</th>
+                <th class="px-4 py-2">Coche</th>
+                <th class="px-4 py-2">Fecha Prueba</th>
+                <th class="px-4 py-2">Comentarios</th>
+                <th class="px-4 py-2">Registro</th>
+                <th class="px-4 py-2">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (s of solicitudes; track s; let i = $index) {
+              <tr class="border-t hover:bg-gray-50 text-center">
+                <td class="px-3 py-2">{{ i + 1 }}</td>
+                <td class="px-3 py-2">{{ s.fullName }}</td>
+                <td class="px-3 py-2">{{ s.email }}</td>
+                <td class="px-3 py-2">{{ s.paymentMethod }}</td>
+                <td class="px-3 py-2">{{ s.color }}</td>
+                <td class="px-3 py-2 text-left">
+                  <ul class="list-disc list-inside">
+                    @if (s.features.airConditioning) { <li>Aire acondicionado</li> }
+                    @if (s.features.electricWindows) { <li>Ventanas eléctricas</li> }
+                    @if (s.features.navigation) { <li>Navegación</li> }
+                  </ul>
+                </td>
+                <td class="px-3 py-2">{{ s.carName }} <br /><span class="text-xs text-gray-500">ID: {{ s.carId }}</span></td>
+                <td class="px-3 py-2">{{ s.testDate | date:'dd/MM/yyyy' }}</td>
+                <td class="px-3 py-2">{{ s.comments }}</td>
+                <td class="px-3 py-2">{{ s.timestamp | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td class="px-3 py-2">
+                  <button type="button" (click)="eliminarSolicitud(i)"
+                    class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <p class="text-center text-gray-300 mt-6">No hay solicitudes registradas.</p>
+      }
+    </mat-tab>
 
-<section class="bg-black w-full min-h-screen flex flex-col items-center justify-center px-4">
-<h2 class="text-2xl font-bold mb-4 text-center">Solicitudes Registradas</h2>
-
-<!-- botones para cambiar la tabla-->
-<div class="flex justify-center gap-4 mb-6">
-  <button 
-    (click)="cambiarVista(false)"
-    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow"
-    [class.opacity-50]="!vistaAlternativa"
-  >
-    Vista Normal
-  </button>
-  <button 
-    (click)="cambiarVista(true)"
-    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow"
-    [class.opacity-50]="vistaAlternativa"
-  >
-    Vista Alternativa
-  </button>
-</div>
-<!------------------------------------------------------------>
-
-@if (!vistaAlternativa) {
- @if (solicitudes.length > 0) {
-  <div class="overflow-x-auto">
-    <table class="min-w-full border border-gray-300 rounded-lg shadow-md text-sm">
-      <thead class="bg-gray-100 text-gray-700">
-        <tr>
-          <th class="px-4 py-2">#</th>
-          <th class="px-4 py-2">Nombre</th>
-          <th class="px-4 py-2">Email</th>
-          <th class="px-4 py-2">Método Pago</th>
-          <th class="px-4 py-2">Color</th>
-          <th class="px-4 py-2">Características</th>
-          <th class="px-4 py-2">Coche</th>
-          <th class="px-4 py-2">Fecha Prueba</th>
-          <th class="px-4 py-2">Comentarios</th>
-          <th class="px-4 py-2">Registro</th>
-          <th class="px-4 py-2">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for ( s of solicitudes; track s; let i = $index) {
-          <tr class="border-t hover:bg-gray-50 text-center">
-            <td class="px-3 py-2">{{ i + 1 }}</td>
-            <td class="px-3 py-2">{{ s.fullName }}</td>
-            <td class="px-3 py-2">{{ s.email }}</td>
-            <td class="px-3 py-2">{{ s.paymentMethod }}</td>
-            <td class="px-3 py-2">{{ s.color }}</td>
-            <td class="px-3 py-2 text-left">
-              <ul class="list-disc list-inside">
-                @if (s.features.airConditioning) { <li>Aire acondicionado</li> }
-                @if (s.features.electricWindows) { <li>Ventanas eléctricas</li> }
-                @if (s.features.navigation) { <li>Navegación</li> }
-              </ul>
-            </td>
-            <td class="px-3 py-2">{{ s.carName }} <br /><span class="text-xs text-gray-500">ID: {{ s.carId }}</span></td>
-            <td class="px-3 py-2">{{ s.testDate | date:'dd/MM/yyyy' }}</td>
-            <td class="px-3 py-2">{{ s.comments }}</td>
-            <td class="px-3 py-2">{{ s.timestamp | date:'dd/MM/yyyy HH:mm' }}</td>
-            <td class="px-3 py-2">
-              <button 
-                type="button"
-                (click)="eliminarSolicitud(i)"
-                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded"
-              >
-                Eliminar
-              </button>
-            </td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-} @else {
-  <p class="text-center text-gray-600 mt-6">No hay solicitudes registradas.</p>
-}
-} @else {
- 
-    
-  
-}
-
-
-
-
-
-
-
+    <!-- Pestaña de Opiniones -->
+    <mat-tab label="OPINIONES DE USUARIOS">
+      @if (opiniones.length > 0) {
+        <div class="overflow-x-auto mt-4">
+          <table class="min-w-full border border-gray-300 rounded-lg shadow-md text-sm bg-white">
+            <thead class="bg-gray-100 text-gray-700">
+              <tr>
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Email</th>
+                <th class="px-4 py-2">Título</th>
+                <th class="px-4 py-2">Mensaje</th>
+                <th class="px-4 py-2">Fecha</th>
+                <th class="px-4 py-2">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (o of opiniones; track o.id; let i = $index) {
+              <tr class="border-t hover:bg-gray-50 text-center">
+                <td class="px-3 py-2">{{ i + 1 }}</td>
+                <td class="px-3 py-2">{{ o.nombre }}</td>
+                <td class="px-3 py-2">{{ o.email }}</td>
+                <td class="px-3 py-2">{{ o.titulo }}</td>
+                <td class="px-3 py-2 text-left max-w-xs truncate">{{ o.mensaje }}</td>
+                <td class="px-3 py-2">{{ o.fecha | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td class="px-3 py-2">
+                  <button (click)="eliminarOpinion(i)"
+                    class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <p class="text-center text-gray-300 mt-6">No hay opiniones registradas.</p>
+      }
+    </mat-tab>
+  </mat-tab-group>
 </section>

@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Car } from '../../models/car.model';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-carro-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,MatProgressSpinnerModule],
   templateUrl: './car-list.component.html',
   styleUrls: ['./car-list.component.css']
 })
@@ -82,7 +84,16 @@ export class CarroListComponent implements OnInit {
 
   if (this.carForm.valid) {
     const formData = this.carForm.value;
-    console.log('Formulario enviado:', formData);
+    Swal.fire({
+      title: 'Reserva realizada',
+      text: 'Felicidades , tu vida empezara a rodar',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#3b82f6',
+      background: '#1f2937',
+      color: '#ffffff',
+      iconColor: '#10b981'
+    });
 
     // Obtener los datos anteriores del localStorage o inicializar un arreglo vacío
     const storedData = localStorage.getItem('compras');
@@ -99,7 +110,6 @@ export class CarroListComponent implements OnInit {
     // Guardar de nuevo en localStorage
     localStorage.setItem('compras', JSON.stringify(submissions));
 
-    alert('Solicitud enviada correctamente');
     this.showModal = false;
   } else {
     console.log('Formulario inválido', this.getFormErrors());

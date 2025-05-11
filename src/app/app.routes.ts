@@ -9,6 +9,7 @@ import { EquipoComponent } from './components/equipo/equipo.component';
 import { LoginComponent } from './components/login/login.component';
 import { CarroListComponent } from './components/car-list/car-list.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { OpinionFormComponent } from './components/opinion-form/opinion-form.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,8 @@ export const routes: Routes = [
     { path: 'Equipo', component: EquipoComponent },
     { path: 'Login', loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent) },
     { path: 'Reserva', component: CarroListComponent },
+    { path: 'Opinion', component: OpinionFormComponent },
+    
     {
         path: 'carros/:id',
         loadComponent: () => import('./components/carro-detalle/carro-detalle.component').then(m => m.CarroDetalleComponent)

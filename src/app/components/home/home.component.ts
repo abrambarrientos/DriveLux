@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   headerOpacity = 0;
   private destroy$ = new Subject<void>();
   isHomeActive = true;
+  textTranslateY = 30;
+  textScale = 0.9;
+  textBlur = 5;
+
 
   constructor(private router: Router) { }
 
@@ -65,14 +69,30 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.lastFrameUpdate = Date.now();
     const scrollPosition = window.scrollY;
     const scrollFraction = scrollPosition / this.maxScroll;
+
+    // Imagen (cuadro del video animado)
     const frame = Math.min(
       this.MAX_FRAMES,
       Math.max(1, Math.floor(scrollFraction * this.MAX_FRAMES * 1.6))
     );
-
     if (frame !== this.currentFrame) {
       this.updateImage(frame);
       this.currentFrame = frame;
+    }
+
+    // Animación de texto
+    const triggerPoint = 5000; //pixeles en los que apárecera el texto
+    if (scrollPosition > triggerPoint) {
+      const progress = Math.min((scrollPosition - triggerPoint) / 300, 1);
+      this.textOpacity = progress;
+      this.textTranslateY = 30 - progress * 50;    
+      this.textScale = 0.9 + progress * 0.15;      
+      this.textBlur = 5 - progress * 5;             
+    } else {
+      this.textOpacity = 0;
+      this.textTranslateY = 30;
+      this.textScale = 0.9;
+      this.textBlur = 5;
     }
   }
 
