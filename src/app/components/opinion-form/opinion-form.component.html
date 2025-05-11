@@ -1,118 +1,205 @@
-<section class="bg-black py-16 px-4 flex justify-center items-center min-h-screen">
-    <div
-        class="container max-w-2xl w-full mx-auto bg-black rounded-xl shadow-2xl overflow-hidden border border-gray-700 transform transition-all hover:scale-[1.01] duration-300">
-        <!-- Encabezado con efecto de neón -->
-        <div class="bg-amber-400 p-4">
-            <h2 class="text-3xl font-bold text-black text-center uppercase tracking-wider">
-                <span class="text-shadow-neon font-['A4SPEED']">Deja tu Opinion</span>
-            </h2>
-            <p class="text-center text-black mt-1 text-sm font-['A4SPEED']">Tu feedback acelera nuestro servicio</p>
-        </div>
-
-        <div class="p-6 ">
-            <form [formGroup]="opinionForm" (ngSubmit)="submitOpinion()" class="space-y-6">
-                <!-- Nombre - Estilo de panel de automóvil -->
-                <div class="form-group">
-                    <label
-                        class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Nombre*</label>
-                    <div class="relative">
-                        <input type="text" formControlName="nombre"
-                            class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
-                            placeholder="Tu nombre completo">
-                        <span class="absolute left-3 top-3 text-gray-400">
-                        </span>
-                    </div>
-                    @if (opinionForm.get('nombre')?.invalid && opinionForm.get('nombre')?.touched) {
-                    <p class="text-red-400 text-xs mt-1 italic">
-                        @if (opinionForm.get('nombre')?.errors?.['required']) {
-                        ✖ El nombre es requerido
-                        }
-                        @if (opinionForm.get('nombre')?.errors?.['minlength']) {
-                        ✖ Mínimo 2 caracteres
-                        }
-                    </p>
-                    }
-                </div>
-
-                <!-- Email - Estilo de dashboard -->
-                <div class="form-group">
-                    <label class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Email*</label>
-                    <div class="relative">
-                        <input type="email" formControlName="email"
-                            class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
-                            placeholder="tucorreo@ejemplo.com">
-                        <span class="absolute left-3 top-3 text-gray-400">
-                        </span>
-                    </div>
-                    @if (opinionForm.get('email')?.invalid && opinionForm.get('email')?.touched) {
-                    <p class="text-red-400 text-xs mt-1 italic">
-                        @if (opinionForm.get('email')?.errors?.['required']) {
-                        ✖ El email es requerido
-                        }
-                        @if (opinionForm.get('email')?.errors?.['email']) {
-                        ✖ Ingrese un email válido
-                        }
-                    </p>
-                    }
-                </div>
-
-                <!-- Título - Estilo de placa de automóvil -->
-                <div class="form-group">
-                    <label
-                        class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Título*</label>
-                    <div class="relative">
-                        <input type="text" formControlName="titulo"
-                            class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all uppercase"
-                            placeholder="EJ: EXPERIENCIA INCREÍBLE">
-                        <span class="absolute left-3 top-3 text-gray-400">
-                        </span>
-                    </div>
-                    @if (opinionForm.get('titulo')?.invalid && opinionForm.get('titulo')?.touched) {
-                    <p class="text-red-500 text-sm mt-1">
-                        El título es requerido
-                    </p>
-                    }
-                </div>
-
-                <!-- Mensaje - Estilo de tablero de instrumentos -->
-                <div class="form-group">
-                    <label
-                        class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Mensaje*</label>
-                    <div class="relative">
-                        <textarea formControlName="mensaje" rows="5"
-                            class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
-                            placeholder="Describe tu experiencia con nosotros..."></textarea>
-                        <span class="absolute left-3 top-3 text-gray-400">
-                        </span>
-                    </div>
-                    @if (opinionForm.get('mensaje')?.invalid && opinionForm.get('mensaje')?.touched) {
-                    <p class="text-red-400 text-xs mt-1 italic">
-                        @if (opinionForm.get('mensaje')?.errors?.['required']) {
-                        ✖ El mensaje es requerido
-                        }
-                        @if (opinionForm.get('mensaje')?.errors?.['minlength']) {
-                        ✖ Mínimo 10 caracteres
-                        }
-                    </p>
-                    }
-                </div>
-
-                <!-- Botón de envío - Estilo de acelerador deportivo -->
-                <div class="pt-2">
-                    <button type="submit" [disabled]="!opinionForm.valid"
-                        class="w-full py-3 px-6 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-700 hover:to-amber-600 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed uppercase tracking-wider flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path
-                                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                        </svg>
-                        Enviar Opinión
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Efecto de luces de neón en la parte inferior -->
-        <div class="h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-70"></div>
+<section class="bg-black py-16 px-4 flex flex-col  justify-center items-center min-h-screen">
+  <div
+    class="container max-w-2xl w-full mx-auto bg-black rounded-xl shadow-2xl overflow-hidden border border-gray-700 transform transition-all hover:scale-[1.01] duration-300">
+    <!-- Encabezado con efecto de neón -->
+    <div class="bg-amber-400 p-4">
+      <h2 class="text-3xl font-bold text-black text-center uppercase tracking-wider">
+        <span class="text-shadow-neon font-['A4SPEED']">Deja tu Opinion</span>
+      </h2>
+      <p class="text-center text-black mt-1 text-sm font-['A4SPEED']">Tu feedback acelera nuestro servicio</p>
     </div>
+
+    <div class="p-6 ">
+      <form [formGroup]="opinionForm" (ngSubmit)="submitOpinion()" class="space-y-6">
+        <!-- Nombre - Estilo de panel de automóvil -->
+        <div class="form-group">
+          <label class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Nombre*</label>
+          <div class="relative">
+            <input type="text" formControlName="nombre"
+              class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
+              placeholder="Tu nombre completo">
+            <span class="absolute left-3 top-3 text-gray-400">
+            </span>
+          </div>
+          @if (opinionForm.get('nombre')?.invalid && opinionForm.get('nombre')?.touched) {
+          <p class="text-red-400 text-xs mt-1 italic">
+            @if (opinionForm.get('nombre')?.errors?.['required']) {
+            ✖ El nombre es requerido
+            }
+            @if (opinionForm.get('nombre')?.errors?.['minlength']) {
+            ✖ Mínimo 2 caracteres
+            }
+          </p>
+          }
+        </div>
+
+        <!-- Email - Estilo de dashboard -->
+        <div class="form-group">
+          <label class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Email*</label>
+          <div class="relative">
+            <input type="email" formControlName="email"
+              class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
+              placeholder="tucorreo@ejemplo.com">
+            <span class="absolute left-3 top-3 text-gray-400">
+            </span>
+          </div>
+          @if (opinionForm.get('email')?.invalid && opinionForm.get('email')?.touched) {
+          <p class="text-red-400 text-xs mt-1 italic">
+            @if (opinionForm.get('email')?.errors?.['required']) {
+            ✖ El email es requerido
+            }
+            @if (opinionForm.get('email')?.errors?.['email']) {
+            ✖ Ingrese un email válido
+            }
+          </p>
+          }
+        </div>
+
+        <!-- Título - Estilo de placa de automóvil -->
+        <div class="form-group">
+          <label class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Título*</label>
+          <div class="relative">
+            <input type="text" formControlName="titulo"
+              class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all uppercase"
+              placeholder="EJ: EXPERIENCIA INCREÍBLE">
+            <span class="absolute left-3 top-3 text-gray-400">
+            </span>
+          </div>
+          @if (opinionForm.get('titulo')?.invalid && opinionForm.get('titulo')?.touched) {
+          <p class="text-red-500 text-sm mt-1">
+            El título es requerido
+          </p>
+          }
+        </div>
+
+        <!-- Mensaje - Estilo de tablero de instrumentos -->
+        <div class="form-group">
+          <label class="block text-sm font-medium text-amber-400 mb-1 uppercase tracking-wider">Mensaje*</label>
+          <div class="relative">
+            <textarea formControlName="mensaje" rows="5"
+              class="w-full bg-gray-700 text-white rounded-lg border-2 border-gray-600 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 p-3 pl-10 transition-all"
+              placeholder="Describe tu experiencia con nosotros..."></textarea>
+            <span class="absolute left-3 top-3 text-gray-400">
+            </span>
+          </div>
+          @if (opinionForm.get('mensaje')?.invalid && opinionForm.get('mensaje')?.touched) {
+          <p class="text-red-400 text-xs mt-1 italic">
+            @if (opinionForm.get('mensaje')?.errors?.['required']) {
+            ✖ El mensaje es requerido
+            }
+            @if (opinionForm.get('mensaje')?.errors?.['minlength']) {
+            ✖ Mínimo 10 caracteres
+            }
+          </p>
+          }
+        </div>
+
+        <!-- Botón de envío - Estilo de acelerador deportivo -->
+        <div class="pt-2">
+          <button type="submit" [disabled]="!opinionForm.valid"
+            class="w-full py-3 px-6 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-700 hover:to-amber-600 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-50 disabled:transform-none disabled:cursor-not-allowed uppercase tracking-wider flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+            </svg>
+            Enviar Opinión
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="bg-black py-16 overflow-hidden relative">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-yellow-400 mb-12 font-['A4SPEED']">OPINIONES DE NUESTROS CLIENTES</h2>
+
+      <div class="relative group">
+        <!-- Contenedor principal -->
+        <div #opinionsContainer class="overflow-x-auto scrollbar-hide pb-8">
+          <div class="flex w-max">
+            @for (opinion of opinions; track opinion.id; let i = $index) {
+            <div class="w-80 md:w-96 px-4 flex-shrink-0 gap-1.5">
+              <div
+                class="bg-black rounded-xl p-6 h-full border border-gray-700 hover:border-yellow-500 transition-colors duration-300 gap-3">
+                <div class="flex items-center mb-4 gap-5">
+                  <div
+                    class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-xl font-bold border border-yellow-500">
+                    {{ opinion.name.charAt(0) }}
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-white font-medium">{{ opinion.name }}</h4>
+                    <div class="flex mt-1">
+                      @for (star of [1,2,3,4,5]; track star) {
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                        [class.text-yellow-400]="star <= opinion.rating" [class.text-gray-600]="star > opinion.rating"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <p class="text-gray-300 italic">"{{ opinion.comment }}"</p>
+                @if (opinion.verified) {
+                <div class="flex items-center mt-4 text-sm text-yellow-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Compra verificada
+                </div>
+                }
+                <div class="text-gray-500 text-sm mt-3">{{ opinion.date | date:'dd/MM/yyyy' }}</div>
+              </div>
+            </div>
+            }
+            <!-- Duplicado para efecto infinito -->
+            @for (opinion of opinions; track 'copy'+opinion.id; let i = $index) {
+            <div class="w-80 md:w-96 px-4 flex-shrink-0">
+              <div
+                class="bg-black rounded-xl p-6 h-full border border-gray-700 hover:border-yellow-500 transition-colors duration-300">
+                <!-- Mismo contenido que arriba -->
+                <div class="flex items-center mb-4">
+                  <div
+                    class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-xl font-bold border border-yellow-500">
+                    {{ opinion.name.charAt(0) }}
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-white font-medium">{{ opinion.name }}</h4>
+                    <div class="flex mt-1">
+                      @for (star of [1,2,3,4,5]; track star) {
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                        [class.text-yellow-400]="star <= opinion.rating" [class.text-gray-600]="star > opinion.rating"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <p class="text-gray-300 italic">"{{ opinion.comment }}"</p>
+                @if (opinion.verified) {
+                <div class="flex items-center mt-4 text-sm text-yellow-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Compra verificada
+                </div>
+                }
+                <div class="text-gray-500 text-sm mt-3">{{ opinion.date | date:'dd/MM/yyyy' }}</div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
 </section>

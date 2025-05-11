@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Servicio } from '../../interfaces/Servicio.interface';
+import { Router,RouterModule} from '@angular/router';
+
 @Component({
   selector: 'app-servicios',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './servicios.component.html',
   styleUrl: './servicios.component.css'
 })
