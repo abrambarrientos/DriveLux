@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     // Animación de texto
-    const triggerPoint = 5000; //pixeles en los que apárecera el texto
+    const triggerPoint = 3500; //pixeles en los que apárecera el texto
     if (scrollPosition > triggerPoint) {
       const progress = Math.min((scrollPosition - triggerPoint) / 300, 1);
       this.textOpacity = progress;
